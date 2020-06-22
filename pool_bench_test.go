@@ -5,7 +5,7 @@ import (
 )
 
 func BenchmarkPool_Get(b *testing.B) {
-	p := NewPool(1024)
+	p := New(1024)
 
 	b.ResetTimer()
 	b.RunParallel(func(pb *testing.PB) {

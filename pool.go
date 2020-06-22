@@ -9,8 +9,8 @@ type Pool struct {
 	p *sync.Pool
 }
 
-// NewPool constructs a new Pool.
-func NewPool(size int) *Pool {
+// New constructs a new Pool.
+func New(size int) *Pool {
 	return &Pool{p: &sync.Pool{
 		New: func() interface{} {
 			return &Buffer{bs: make([]byte, 0, size)}

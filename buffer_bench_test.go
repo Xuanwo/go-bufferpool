@@ -6,7 +6,7 @@ import (
 )
 
 func benchmarkBuffer(b *testing.B, fn func(buf *Buffer)) {
-	p := NewPool(1024)
+	p := New(1024)
 
 	b.ResetTimer()
 	b.RunParallel(func(pb *testing.PB) {

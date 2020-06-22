@@ -7,7 +7,7 @@ import (
 )
 
 func testBuffer(t *testing.T, fn func(buf *Buffer)) {
-	p := NewPool(1024)
+	p := New(1024)
 
 	t.Run("", func(t *testing.T) {
 		buf := p.Get()
