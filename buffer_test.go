@@ -75,3 +75,9 @@ func TestBuffer_AppendUint(t *testing.T) {
 		buf.AppendTime(ti, time.RFC1123)
 	})
 }
+
+func TestBuffer_AppendRune(t *testing.T) {
+	testBuffer(t, func(buf *Buffer) {
+		buf.AppendRune('😀')
+	})
+}

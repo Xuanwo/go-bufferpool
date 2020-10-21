@@ -3,6 +3,7 @@ package bufferpool
 import (
 	"strconv"
 	"time"
+	"unicode/utf8"
 )
 
 type Buffer struct {
@@ -51,6 +52,13 @@ func (b *Buffer) AppendTime(t time.Time, layout string) {
 // AppendUint will append a uint64 into buffer.
 func (b *Buffer) AppendUint(i uint64) {
 	b.bs = strconv.AppendUint(b.bs, i, 10)
+}
+
+// AppendRune will append a rune into buffer.
+func (b *Buffer) AppendRune(r rune) {
+	rs := make([]byte, 4)
+	size := utf8.EncodeRune(rs, r)
+	b.bs = append(b.bs, rs[:size]...)
 }
 
 // Bytes will return underlying bytes.

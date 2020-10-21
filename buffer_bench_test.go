@@ -72,3 +72,9 @@ func BenchmarkBuffer_AppendUint(b *testing.B) {
 		buf.AppendUint(1234567890)
 	})
 }
+
+func BenchmarkBuffer_AppendRune(b *testing.B) {
+	benchmarkBuffer(b, func(buf *Buffer) {
+		buf.AppendRune('😀')
+	})
+}
