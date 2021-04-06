@@ -66,6 +66,13 @@ func (b *Buffer) Bytes() []byte {
 	return b.bs
 }
 
+// BytesCopy will return copied underlying bytes.
+func (b *Buffer) BytesCopy() []byte {
+	bs := make([]byte, len(b.bs))
+	copy(bs, b.bs)
+	return bs
+}
+
 // Free will free underlying bytes and put into pool.
 //
 // After free, this buffer should not be touched anymore.
