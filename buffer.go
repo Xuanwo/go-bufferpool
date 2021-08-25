@@ -73,6 +73,11 @@ func (b *Buffer) BytesCopy() []byte {
 	return bs
 }
 
+// String will convert underlying bytes to string and return.
+func (b *Buffer) String() string {
+	return string(b.bs)
+}
+
 // Free will free underlying bytes and put into pool.
 //
 // After free, this buffer should not be touched anymore.
